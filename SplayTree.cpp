@@ -13,6 +13,7 @@ template <int SZ> struct SplayTree {
 
 	// input array
 	int ar[SZ];
+	
 	void upd(int x) {
 		sz[x] = 1 + sz[ch[x][0]] + sz[ch[x][1]];
 	}
