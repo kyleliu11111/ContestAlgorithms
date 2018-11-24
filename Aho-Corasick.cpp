@@ -20,8 +20,6 @@ Implemented:
 Given a set of N strings of lowercase letters, find the positions of all of their occurances in a text T
 */
 
-
-
 #include <bits/stdc++.h>
  
 using namespace std;
