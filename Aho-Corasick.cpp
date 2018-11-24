@@ -20,6 +20,8 @@ Implemented:
 Given a set of N strings of lowercase letters, find the positions of all of their occurances in a text T
 */
 
+
+
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -30,17 +32,22 @@ const int MAXN = 1e5 + 1;
 const int sigma = 26;
 
 template <int SZ> struct Aho_Corasick {
-	int to[SZ][sigma], trans[SZ][sigma], link[SZ], par[SZ], pch[SZ], term[SZ], sz=0;
-	
+	int to[SZ][sigma], trans[SZ][sigma], link[SZ], par[SZ], term[SZ], sz=0;
+	char pch[SZ];
+	''
 	// problem-specific 
 	vector <pair <int, int> > ends_here[SZ]; int size_dict = 0;
+	
+	void reset(int u) { link[u] = -1; for(int i=0; i<sigma; i++) trans[u][i] = -1; }
 	void insert_string(string s) {
 		int u = 0;
+		reset(u);
 		for(char ch : s) {
-			link[u] = -1; for(int i=0; i<sigma; i++) trans[u][i] = -1;
 			int c = ch - 'a';
 			if(!to[u][c]) to[u][c] = ++sz;
+			par[to[u][c]] = u, pch[to[u][c]] =  ch;
 			u = to[u][c];
+			reset(u);
 		} term[u] = u; ends_here[u].PB({size_dict++, (int)s.length()});
 	}
 	int get_link(int u) {
@@ -66,6 +73,7 @@ string T;
 Aho_Corasick <MAXN> AC;
 vector <int> occurances[MAXN];
 void solve() {
+	cin >> N;
 	for(int i=0; i<N; i++) {
 		string d; 
 		cin >> d;
@@ -76,7 +84,11 @@ void solve() {
 	int cur = 0;
 	for(int i=0; i<T.size(); i++) {
 		cur = AC.get_trans(cur, T[i]);
-		for(auto dat : AC.ends_here[cur]) occurances[dat.A].PB(i - dat.B + 1);
+		int tmp = cur;
+		while(tmp) {
+			for(auto dat : AC.ends_here[tmp]) occurances[dat.A].PB(i - dat.B + 1);
+			tmp = AC.term[AC.get_link(tmp)];
+		}
 	}
 	for(int i=0; i<N; i++) {
 		for(int occ : occurances[i]) cout << occ << ' ';
