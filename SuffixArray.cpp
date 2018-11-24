@@ -72,6 +72,7 @@ int main(void)
 	
 	SuffixArray <MAXN> SA;
 	SA.build(N, s);
+	
 	int ans = 0;
 	for(int i=0; i<N; i++) {
 		if(SA.ht[i+1] > ans) {
