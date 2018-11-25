@@ -34,7 +34,7 @@ const int sigma = 26;
 template <int SZ> struct Aho_Corasick {
 	int to[SZ][sigma], trans[SZ][sigma], link[SZ], par[SZ], term[SZ], sz=0;
 	char pch[SZ];
-	''
+	
 	// problem-specific 
 	vector <pair <int, int> > ends_here[SZ]; int size_dict = 0;
 	
