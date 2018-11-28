@@ -1,3 +1,25 @@
+/*
+Suffix Array and LCP array implementation
+Based on http://web.stanford.edu/class/cs97si/suffix-array.pdf 
+
+Facts: 
+- Space-efficient alternative to suffix trees
+- Constructs a sorted array of the suffixes of a string S in O(|S|log|S|).
+
+How it works:
+- Iteratively sorts suffixes by sorting them by their 2^k long prefixes from k=0 to [log_2(|S|)] (ceil).
+- Computes the longest common prefixes of consecutive suffixes in the suffix array using Kasai's algorithm,
+stored in ht[]
+
+Applications:
+- Count distinct substrings of a string S
+- Determine the longest palindromic substring of a string S
+- Determine the minimum lexicographic rotation of a string S
+
+Implemented: 
+Compute the longest common substring of two strings
+*/
+
 #include  <bits/stdc++.h>
 
 using namespace std;
