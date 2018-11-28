@@ -1,4 +1,3 @@
-# ContestLibrary
 
 #  Introduction
 Hey! This is a compilation of implementations of algorithms and data structures that I commonly use on programming contests. Each snippet of code contains some description of the technique used, followed by an implementation of a typical problem, and some examples of other applications of the technique.
