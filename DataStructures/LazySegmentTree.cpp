@@ -1,3 +1,25 @@
+/*
+Lazy Propagation on Segment Tree
+
+Facts:
+- Creates a balanced binary search tree on a static array, splitting by the middle element
+- Preprocesses an array to perform many types of subarray queries and updates in ~O(logN)
+
+How it works:
+- Each node contains the sum of its elements, with children containing half of its elements
+- Any subarray is the union of at most O(logN) segments in the segment tree
+- Determine sum queries by computing the sum of these O(logN) segments
+- Perform subarray updates by updating nodes as needed, leaving a "lazy" tag on nodes still pending updates
+
+Applications:
+- Determine the area covered by a set of axis-alligned rectangles
+- Perform subarray increments and subarray sum, min, max queries
+- Perform subarray assignments and subarray sum, min, max queries
+
+Implemented:
+- Preprocess an array to answer subarray sum queries in O(logN).
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std; 
