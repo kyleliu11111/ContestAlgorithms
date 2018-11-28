@@ -1,3 +1,22 @@
+/*
+Lowest Common Ancestor with Binary Lifting
+
+Facts : 
+- Answers lowest common ancestor queries on a tree of N nodes in O(logN)
+- Precomputations in <O(NlogN), O(NlogN)>
+
+How it works:
+- Computes the parent and depth arrays of a tree with dfs in O(N)
+- Uses dynamic programming to find the 2^k'th parents of each node, for k=0...[log2(N)]
+- Answers LCA queries by a form of binary search
+
+Applications:
+- Query the distance between two nodes in a tree in O(logN)
+- Answer path min, sum, max queries in a tree in O(logN)
+
+Implemented:
+Preprocess a tree to answer lowest common ancestor queries in O(logN)
+*/
 #include <bits/stdc++.h>
 
 using namespace std; 
