@@ -1,3 +1,30 @@
+/*
+Heavy-light Path Decomposition on a Tree
+
+Facts:
+- Decomposes a tree into vertex-disjoint chains such that the path between any node and the root crosses O(logN) chains
+- Constructs in-order traversal arrays to allow path and subtree updates
+
+How it works:
+- Reorders children of each node such that the first child has the largest subtree
+- Edges to the first child are called "heavy", all others are "light"
+- Chains are constructed of consecutive heavy edges. In this implementation, top[u] denotes the highest node in the
+chain containing u.
+- Now we can verify that the nodes on the path {top[u], u} are consecutive in the in-order tree traversal.
+- Thus, an update to the root consists of updating segments of at most log(N) chains, which can be done in O(logN)
+using segment trees with lazy propagation.
+- We can also perform subtree updates quickly, as the nodes in the subtree of {u} are also consecutive in the in-order
+tree traversal.
+
+Applications:
+- Path increment and path sum, min, max queries in O(log^2N)
+- Subtree increment and subtree sum, min, max queries in O(logN)
+- LCA computation in O(logN)
+
+Implemented: 
+Preprocess a tree to support quick path increment and path sum queries
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
