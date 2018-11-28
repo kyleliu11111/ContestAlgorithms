@@ -2,8 +2,8 @@
 Aho-Corasick string searching algorithm implementation
 
 Facts :
-Optimal string searching algorithm
-Determines all occurences of strings d in a dictionary in a given text T in O(sum{|d|} + |T|) time
+- Optimal string searching algorithm
+- Determines all occurences of strings d in a dictionary in a given text T in O(sum{|d|} + |T|) time
 
 How it works:
 - Constructs a finite-state machine(automaton) on a trie with suffix links in 
