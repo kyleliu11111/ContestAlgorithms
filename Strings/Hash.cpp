@@ -1,3 +1,26 @@
+/*
+String Hashing
+
+Facts:
+- Not deterministically correct
+- O(1) string comparison
+- Probability of collision is ~ 1/P, where P is the modulo used
+
+How it works:
+- Utilizes a polynomial rolling hash function mod prime P
+- Computes powers and inverse powers mod P of the base
+- Computes hashes of all prefixes of given string S
+- Answers queries of substring hashes in O(1)
+
+Applications:
+- Calculate the number of palindromic substring in a string S
+- Construct a suffix array of a string S in O(|S|log^2|S|)
+
+Implemented: 
+- Given two strings S and T, find how many times S appears as a substring of T
+*/
+
+
 #include <bits/stdc++.h>
 
 using namespace std; 
