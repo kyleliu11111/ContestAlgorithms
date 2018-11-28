@@ -1,4 +1,23 @@
+/*
+Splay Tree
 
+Facts:
+- Self-balancing binary search tree
+- Recently accessed elements are quick to access again
+- Amortized O(logN) access, insert, delete
+
+How it works:
+- Balances by a sequence of tree rotations after accessing a node (called a "Splay")
+- Maintains summary statistics in each node (in this implementation -- subtree size)
+
+Applications:
+- "Rope" applications -- remove and reinsert a subarray in O(logN)
+- Subarray cyclic shift in O(logN)
+- Process segment tree statistics with dynamic insertions and deletions
+
+Implemented:
+- Perform subarray reversal updates in O(logN) and print the final array
+*/
 #include <bits/stdc++.h> 
 
 using namespace std;
