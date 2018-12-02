@@ -36,7 +36,7 @@ struct Hash {
     int N;
     string S;
     vector <ll> pwr, ipo, sum;
-    ll BASE = 31;
+    ll BASE = 31; ll INVB;
     ll MOD = 1e9+7;
     
     inline ll madd(ll a, ll b) { return (a+b)%MOD; }
@@ -58,10 +58,10 @@ struct Hash {
     
     void go(string inp) {
         N = (int)inp.size(); S = inp;
-        pwr.PB(1); ipo.PB(1);
+        pwr.PB(1); ipo.PB(1); INVB = inv(BASE);
         for(int i=1; i<N; i++) {
             pwr.PB(mmul(pwr.back(), BASE));
-            ipo.PB(inv(pwr.back()));
+            ipo.PB(mmul(ipo.back(), INVB));
         }
         sum.PB(0);
         for(int i=0; i<N; i++) sum.PB(madd(sum.back(), mmul(pwr[i], S[i]-'a'+1)));
