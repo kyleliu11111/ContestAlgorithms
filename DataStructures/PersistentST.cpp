@@ -1,3 +1,19 @@
+/*
+Persistent Segment Tree
+Facts:
+- Maintains many versions of a segment tree over time
+- O(QlogN) memory for Q point updates
+How it works:
+- Note that each point update on a segment tree changes the values at most O(logN) nodes
+- For an update at point x, this affects only nodes on the path root->x
+- For each update :
+    Create new nodes as needed
+    re-use unchanged nodes from previous versions of the segment tree
+Applications:
+- Query order statistics on ranges in O(logN)
+Implemented:
+- Preprocess an array to answer rectangle sum queries in O(logN)
+*/
 #include <bits/stdc++.h> 
 
 using namespace std;
