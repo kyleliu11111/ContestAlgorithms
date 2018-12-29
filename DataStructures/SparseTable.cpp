@@ -1,3 +1,22 @@
+/*
+Sparse Table
+Facts:
+- Preprocesses an array to answer decomposable subarray statistics quickly
+- Can apply to trees, functional graphs, etc...
+How it works:
+- Maintain summary statistics for all subarrays of length 2^k for k = [0 ... log(N)]
+- Precompute these with dynamic programming
+- Any subarray can be decomposed into at most O(log(N)) (and in fact O(1)!) of these subarrays
+- Merge precomputed answers to retrieve answers for queries
+Applications:
+- Preprocess an array to answer subarray min, max, gcd queries in O(logN)
+- Preprocess an array to answer subarray min, max queries in O(1)
+- Preprocess a tree to answer LCA, path min, max, sum queries in O(logN)
+- Compute P'th power of an NxN matrix in O(N^3logP)
+Implemented:
+- Preprocess an array to answer subarray min queries in O(logN).
+*/
+
 #include <bits/stdc++.h> 
 
 using namespace std;
