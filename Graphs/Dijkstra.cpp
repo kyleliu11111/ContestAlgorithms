@@ -1,3 +1,21 @@
+/*
+Dijkstra's Shortest Path Algorithm
+Facts:
+- Single source shortest path algorithm
+- O((N+M)logN) SSSP
+- Assumes non-negative edge weights
+How it works:
+- Build shortest path tree in N steps, maintain d[v]. Initially, d[1] = 0, d[v != 1] = INF.
+- In each step, retrieve v with minimum d[v] not yet explored
+- Traverse each edge from v, updating d[] accordingly
+- After N steps, d[v] contains the shortest path from 1->v
+- O(N^2 + M)
+- In sparce graphs, speed up to O((N+M)logN) with a priority queue to retrieve minimum d[v]
+Applications:
+- Fast single source shortest path
+Implemented:
+- Given a directed graph, determine the shortest path between 1->N
+*/
 #include <bits/stdc++.h>
 
 using namespace std; 
