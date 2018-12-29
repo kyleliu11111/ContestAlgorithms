@@ -1,3 +1,22 @@
+/*
+Bellman-Ford Shortest Path Algorithm
+Facts:
+- Single source shortest path algorithm
+- Handles negative edge weights
+- O(NM) SSSP
+- Detects negative cycles
+How it works:
+- Assume no negative cycles exist: then any shortest path contains at most N-1 edges
+- Perform N-1 "relaxation" steps: 
+    at the i'th step, we compute d[v], the shortest path from 1->v using at most i edges
+- Run the relaxation step an N'th time -- if our d[v] values change, 
+    then a shortest path contains more than N-1 edges, so a negative cycle exists
+Applications:
+- Solve systems of difference constraints with shortest paths
+- Shortest path with negative cycles
+Implemented:
+- Given a directed graph, determine the shortest path between 1->N, or report that a negative cycle exists
+*/
 #include <bits/stdc++.h>
 
 using namespace std; 
