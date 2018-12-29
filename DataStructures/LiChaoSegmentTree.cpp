@@ -1,3 +1,22 @@
+/*
+LiChao Segment Tree for Dynamic Upper/Lower Hull Maintenance
+
+Facts:
+- Accepts functions F() with condition that no two functions intersect twice
+- Builds a segment tree over x-values to query min or max over F_i(x)
+How it works:
+- Each node contains the "dominating" function over a range -- the extrema at the center x-value
+- Pushes non-dominating functions down the tree based on intersection point with dominating function
+- Guarantees : For each x-value, argmin F_i(x) lies on the path from the root of the segment tree 
+  to the corresponding leaf node
+Applications:
+- Online upper/lower hull maintenance for mono-intersecting functions
+- non-amortized O(logN) insertions and O(logN) extrema queries
+- Offline dynamic upper/lower hull maintenance (insertions and deletions) in O(Qlog^2N)
+Implemented:
+- Given a set of linear functions, query the maximum over all functions at many x-values
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std;
