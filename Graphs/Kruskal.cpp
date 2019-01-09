@@ -1,3 +1,20 @@
+/*
+Kruskal's Minimum Spanning Tree Algorithm
+Facts:
+- Fast Min Spanning Tree Algorithm
+- O(MlogM) 
+How it works:
+- Repeated greedy algorithm : 
+    - take the minimum weight edge connecting two non-connected nodes 
+    - This edge will be in the MST (prove by contradiction)
+- Repeat N-1 times, determine if two nodes are already connected with disjoint set union
+Applications:
+- Find the MST of an undirected graph in O(MlogM)
+- Find the K'th MST of an undirected graph in O(NMKlogM) [Hard]
+Implemented:
+- Find the MST of an undirected graph in O(MlogM)
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std; 
