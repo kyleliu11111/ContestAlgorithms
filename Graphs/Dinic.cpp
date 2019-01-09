@@ -1,3 +1,19 @@
+/*
+Dinic's Maximum Flow Algorithm
+Facts:
+- Solves Max Flow problem in O(V^2E) in general graphs
+- Runs very quickly (O(EV^1/2)) in bipartite matching
+How it works:
+- Build residual flow graph as in Ford-Fulkerson + Edmonds-Karp
+- Repeatedly finds "blocking flows" (paths from S->T such that at least one edge is saturated with flow)
+- Computes a "level graph": calculates level[v], the shortest path from s->v with positive capacities
+- We only keep edges u->v s.t. level[u]+1 = level[v]
+- Can use Link-Cut Trees to find blocking flows quickly -> O(EVlogV)
+Applications:
+- Fast maximum flow algorithm
+Implemented:
+- Compute the Maximum Flow from S->T of a given network
+*/
 #include <bits/stdc++.h>
 
 using namespace std;
