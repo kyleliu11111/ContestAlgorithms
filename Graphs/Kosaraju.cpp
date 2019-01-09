@@ -1,3 +1,22 @@
+/*
+Kosaraju's Strongly Connected Components Algorithm
+Facts:
+- Easiest (to implement) SCC algorithm - 2 DFS's
+- O(N + M) construction of SCC's of a directed graph and resulting condensation graph
+How it works:
+- Start a DFS frome each vertex visiting each unprocessed vertex, recording tin[v] and tout[v] --
+    tin[v] : time denoting when the DFS first visits vertex v
+    tout[v] : time denoting when the DFS exits vertex v
+- Run a DFS on G^T (the reverse graph) from vertices v in decreasing tout[v]
+- The vertices visited on each DFS will be the SCC's in reverse topological order
+Applications:
+- Compute SCC's oof a directed graph and resulting condensation graph in O(N+M)
+- Find a path (not simple) visiting the most distinct vertices in a directed graph
+- Solve 2SAT in O(N + M), 
+Implemented:
+- Compute the SCC's of a given directed graph
+*/
+
 #include <bits/stdc++.h>
 
 using namespace std; 
